@@ -1,0 +1,23 @@
+{% extends './layout.html' %}
+{% block title %}tweets dashboard{% endblock %}
+{% block body %}
+
+<div>
+    <form action='/jobs/<id>/update', method="post">
+ 
+        <br><label for="title">title:</label>
+        <input type="text" name="title" value="{{job_view.title}}">
+
+        <br><label for="Description">Description:</label>
+        <input type='text' name='description' value='{{job_view.description}}'>
+
+        <br><label for="Location">Location:</label>
+        <input type="text" name='location' value="{{job_view.location}}">
+
+        <br><input type="submit" value="Submit">
+        <a href="/dashboard">Cancel</a>
+    </form>
+</div>
+
+    
+{% endblock %}

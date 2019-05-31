@@ -1,0 +1,59 @@
+{% extends './layout.html' %}
+{% block title %}tweets dashboard{% endblock %}
+{% block body %}
+
+    <div class=header>
+        <h2>Everyone's Jobs:</h2>
+        <h3><a href="/jobs" class=add_btn>Post New Job</a></h3>
+    </div>
+      <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job</th>
+                    <th>Location</th>
+                    <th>Actions</th>  
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs  %}
+                    <tr>
+                        <td>{{ job.title }}</td>
+                        <td>{{ job.location }}</td>
+                        <td><a href="/jobs/{{ job['id'] }}">View</a>
+                            <a href="/jobs/{{ job['id'] }}/add">Add</a>
+                            
+                        {% if session['user_id'] == job['user_id'] %}
+                            <a href="/jobs/{{ job['id'] }}/edit">Edit</a>
+                            <a href="/jobs/{{ job['id'] }}/delete">Remove</a>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+      <div>
+          <h1>{{ user.first_name}}'s Job</h1>
+        <table class=table2>
+            <thead>
+                <tr>
+                    <th>Job</th>
+                    <th>Actions</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <h3>{% for job_list in users_job %}</h3>
+                    <tr>
+                        <td>{{ job_list.title }}</td>
+                        <td><a href="/jobs/{{ job_list['id'] }}">View</a>
+                            <a href="/jobs/{{ job_list['id'] }}/delete">Give Up</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    
+    
+{% endblock %}

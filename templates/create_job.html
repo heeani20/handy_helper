@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href="{{ url_for('static', filename='css/reg_log.css') }}">
+
+    <title>Log_Reg</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        body {
+            margin: 0px;
+            background-color: #eeeeee;
+        }
+        .forms_wrapper {
+            background-color: #eeeff1;
+            text-align: center;
+            width: 550px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 100px;
+        }
+        .background {
+            text-align: center;
+        }
+        .text-field {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+
+        }
+        .submit-btn {
+            border: none #1bbc9b;
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .submit-btn2 {
+            border: none #1bbc9b;
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+            margin-top: 150px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            
+        }
+        .register {
+            display: inline-block;
+            margin-left: 30px;
+         
+        }
+        .login {
+            display: inline-block;
+      
+            vertical-align: top;
+        }
+        h3 {
+            margin: 0px;
+            margin-top: 10px;
+            color: gray;
+        }
+        ul {
+            list-style: none;
+        }
+        .text-field1 {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 45px;
+        }
+        .text-field2 {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+          
+        }
+        .text-field3 {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: gray;
+        }
+    </style>
+</head>
+
+
+<div class="register">
+    <h2>Create a Job!</h2>
+    <form action="{{ url_for('jobs:new') }}" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" class='text-field1' placeholder="title">
+        <br><label for="Description">Description:</label>
+        <input type="text" name="description" class='text-field2' placeholder="description">
+        <br></bt><label for="location">Location:</label>
+        <input type="text" name="location" class='text-field3' placeholder="location">
+        <br><label for="type">categorize:</label>
+        <input type="checkbox" name="categorize" value="Home" id="">Home
+        <input type="checkbox" name="categorize" value="Outside" id="">Outside
+        <input type="checkbox" name="categorize" value="Inside" id="">Inside
+    
+        <!-- <br><input type="password" name="confirm_password" class='text-field' placeholder="Confirm Password"> -->
+
+        <br><input type="submit" class='submit-btn' value="Submit">
+        <a href="/dashboard">Cancel</a>
+    </form>
+    {% with errors = get_flashed_messages() %}
+        {% if errors %}
+        <ul>
+            {%- for msg in errors %}
+            <li>{{ msg }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}       
+
+
+    
+</body>
+</html>

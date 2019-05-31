@@ -1,0 +1,15 @@
+{% extends './layout.html' %}
+{% block title %}tweets dashboard{% endblock %}
+{% block body %}
+
+
+    <h2>Job Title: {{job_view.title}}</h2>
+    <div class=box>
+        <p>Description: {{job_view.description}}</p>
+        <p>Location: {{job_view.location}}</p>
+        <p>Posted by: {{job_view.user.first_name}} {{job_view.user.last_name}} </p>
+        <p>Posted on: {{job_view.created_at}}</p>
+    </div>
+
+    <p><a href="/jobs/{{ job_view['id'] }}/add">Add to my Job!</a></p>
+{% endblock %}

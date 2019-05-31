@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reg_log.css') }}">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        body {
+            margin: 0px;
+            background-color: #eeeeee;
+        }
+        .forms_wrapper {
+            background-color: #eeeff1;
+            text-align: center;
+            width: 550px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 100px;
+        }
+        .background {
+            text-align: center;
+        }
+        .text-field {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+
+        }
+        .text-field1 {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 45px;
+        }
+        .text-field2 {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+          
+        }
+        .text-field3 {
+            border: none;
+            width: 200px;
+            height: 25px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+        .submit-btn {
+            border: none #1bbc9b;
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .submit-btn2 {
+            border: none #1bbc9b;
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+            margin-top: 150px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            
+        }
+        .register {
+            display: inline-block;
+            margin-left: 30px;
+         
+        }
+        .login {
+            display: inline-block;
+      
+            vertical-align: top;
+        }
+        h3 {
+            margin: 0px;
+            margin-top: 10px;
+            color: gray;
+        }
+        ul {
+            list-style: none;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid black;
+        
+        }
+        .nav--right {
+     
+            align-items: center;
+            font-weight: normal;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        .nav--right a {
+            font-size: 15px;
+            display: block;
+      
+        }
+        .nav--right p {
+            margin: 0px;
+        }
+        li {
+            list-style: none;
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+        }
+        p {
+            font-size: 20px;
+            margin-left: 15px; 
+        }
+        p2 {
+            font-size: 20px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .table2 {
+            margin-bottom: 200px;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        h1 {
+            text-align: center;
+        }
+        h4 {
+            margin-left: 15px;
+        }
+        .poke_user {
+          margin-bottom: 50px;
+        }
+        .poke {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        p2 {
+            color: #d4b2b2;
+        }
+        .box {
+            border: 1px solid gray;
+        }
+        .header {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            display: inline;
+            padding: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: gray;
+        }
+    </style>
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <p>Welcome, {{ user.first_name }}</p>
+            <div class="nav--right">
+                <li class="list">
+                    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('users:logout') }}">logout</a>
+                </li>
+          </div>
+        </div>
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>
